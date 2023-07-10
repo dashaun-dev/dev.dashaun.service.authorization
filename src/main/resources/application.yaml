@@ -11,3 +11,17 @@ spring:
               authorization-grant-types: client_credentials,authorization_code,refresh_token
               redirect-uris: https://dashaun.dev/login/oauth2/code/spring
               scopes: user.read,user.write,openid
+      client:
+        registration:
+          github:
+            authorization-grant-type: authorization_code
+            provider: github
+            scope:
+              - read:user
+              - user:email
+        provider:
+          github:
+            authorization-uri: https://github.com/login/oauth/authorize
+            token-uri: https://github.com/login/oauth/access_token
+            user-info-uri: https://api.github.com/user
+            user-name-attribute: login
